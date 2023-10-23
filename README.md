@@ -2,7 +2,7 @@
 
 Team:
 
-* Person 1 - Which microservice?
+* Danny Gomez - Sales Microservice
 * Person 2 - Which microservice?
 
 ## Design
