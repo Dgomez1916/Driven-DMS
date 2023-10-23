@@ -3,8 +3,7 @@
 Team:
 
 * Danny Gomez - Sales Microservice
-* Person 2 - Which microservice?
-
+* Person 2 - Services Microservice
 ## Design
 
 ## Service microservice
