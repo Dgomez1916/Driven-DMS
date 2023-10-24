@@ -7,6 +7,7 @@ class AutomobileVO(models.Model):
         (False, "Not Sold"),
         (True, "Sold"),
     )
+    import_href = models.CharField(max_length=200, unique=True)
     vin = models.CharField(max_length=200, unique=True)
     sold = models.BooleanField(choices=SOLD_CHOICES, default=False)
 
@@ -14,21 +15,27 @@ class AutomobileVO(models.Model):
 class Technician(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    employee_id = models.IntegerField(primary_key=True)
+    employee_id = models.CharField(max_length=50)
 
 
 class Appointment(models.Model):
     SERVICE_CHOICES = (
-        (False, "Not Serviced"),
-        (True, "Serviced"),
+        (False, "Canceled"),
+        (True, "Finished"),
     )
-    ate_time = models.DateTimeField("Date and Time", auto_now=False, auto_now_add=False)
+    VIP_CHOICES = (
+        (False, "No"),
+        (True, "Yes"),
+    )
+    date_time = models.DateTimeField()
     reason = models.CharField(max_length=500)
-    status = models.BooleanField(choices=SERVICE_CHOICES, default=False)
+    status = models.BooleanField(choices=SERVICE_CHOICES, null=True)
     vin = models.CharField(max_length=200, unique=True)
     customer = models.CharField(max_length=200)
+    vip = models.BooleanField(choices=VIP_CHOICES, default=False)
     technician = models.ForeignKey(
         Technician,
-        related_name="technician",
+        related_name="technicians",
         null=True,
+        on_delete=models.PROTECT,
     )
