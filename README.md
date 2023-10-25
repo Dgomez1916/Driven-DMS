@@ -3,7 +3,7 @@
 Team:
 
 * Danny Gomez - Sales Microservice
-* Person 2 - Services Microservice
+* Boris Veits - Services Microservice
 ## Design
 
 ## Service microservice
