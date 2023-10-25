@@ -114,14 +114,16 @@ def api_list_sale(request):
             )
     else:
         content = json.loads(request.body)
+        vin = content['automobile']
         try:
-            automobile = AutomobileVO.objects.get(
-                vin=content['automobile'])
+            automobile = AutomobileVO.objects.get(vin=vin)
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Automobile with VIN not found in the database"},
                 status=404
-        )
+            )
+        content['automobile'] = automobile  # Replace the VIN with the AutomobileVO instance
+
         try:
             salesperson = Salesperson.objects.get(id=content["salesperson"])
             content["salesperson"] = salesperson
@@ -130,6 +132,7 @@ def api_list_sale(request):
                 {"message": "Salesperson ID does not exist"},
                 status=404
             )
+
         try:
             customer = Customer.objects.get(id=content["customer"])
             content["customer"] = customer
@@ -138,6 +141,7 @@ def api_list_sale(request):
                 {"message": "Customer ID does not exist"},
                 status=404
             )
+
         sale = Sale.objects.create(**content)
         return JsonResponse(
             sale,
@@ -175,4 +179,3 @@ def api_show_sale(request, pk):
                 {"message": "Sale does not exist"},
                 status=404
             )
-
