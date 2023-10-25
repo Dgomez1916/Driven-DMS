@@ -163,7 +163,6 @@ def api_update_appointment(request, pk, action=None):
     try:
         appointment = Appointment.objects.get(pk=pk)
     except ObjectDoesNotExist:
-        print("Appointment not found:", pk)
         return JsonResponse(
             {"error": "Appointment not found"},
             status=404,
@@ -171,20 +170,15 @@ def api_update_appointment(request, pk, action=None):
 
     # Validate the action parameter
     if action not in ['cancel', 'finish']:
-        print(f"Invalid action: {action}")
         return HttpResponseBadRequest("Invalid action")
 
     # Update the appointment status based on the action
     if action == 'cancel':
-        appointment.status = False  # Set status to "Canceled"
+        appointment.status = 'canceled'  # Set status to "Canceled"
     elif action == 'finish':
-        appointment.status = True  # Set status to "Finished"
+        appointment.status = 'finished'  # Set status to "Finished"
 
-    # Save changes to the database
     appointment.save()
-
-    # For debugging
-    print(f"Updated appointment: {appointment}")
 
     return JsonResponse(
         {"message": f"Appointment {appointment.pk} status updated to {action}"},

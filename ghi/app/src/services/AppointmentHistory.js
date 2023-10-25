@@ -58,7 +58,13 @@ const AppointmentsHistory = () => {
                                 </td>
                                 <td>{appointment.technician.first_name + ' ' + appointment.technician.last_name}</td>
                                 <td>{appointment.reason}</td>
-                                <td>{appointment.status ? "Finished" : "Canceled"}</td>
+                                <td>
+                                    {appointment.status === "pending"
+                                        ? "Pending"
+                                        : appointment.status === "finished"
+                                        ? "Finished"
+                                        : "Canceled"}
+                                </td>
                             </tr>
                         );
 					})}

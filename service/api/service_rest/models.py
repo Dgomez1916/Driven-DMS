@@ -20,8 +20,9 @@ class Technician(models.Model):
 
 class Appointment(models.Model):
     SERVICE_CHOICES = (
-        (False, "Canceled"),
-        (True, "Finished"),
+        ('pending', "Pending"),
+        ('finished', "Finished"),
+        ('canceled', "Canceled"),
     )
     VIP_CHOICES = (
         (False, "No"),
@@ -29,7 +30,7 @@ class Appointment(models.Model):
     )
     date_time = models.DateTimeField()
     reason = models.CharField(max_length=500)
-    status = models.BooleanField(choices=SERVICE_CHOICES, null=True)
+    status = models.CharField(max_length=10, choices=SERVICE_CHOICES, default='pending')
     vin = models.CharField(max_length=200, unique=True)
     customer = models.CharField(max_length=200)
     vip = models.BooleanField(choices=VIP_CHOICES, default=False)
