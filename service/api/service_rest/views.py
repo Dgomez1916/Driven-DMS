@@ -46,7 +46,7 @@ class AppointmentEncoder(ModelEncoder):
     }
 
 # List technicians, create/delete technician
-@require_http_methods(['GET', 'POST'])
+@require_http_methods(['GET', 'POST', 'DELETE'])
 def api_list_technicians(request, pk=None):
 
     if request.method == 'GET':
@@ -59,7 +59,7 @@ def api_list_technicians(request, pk=None):
         except ObjectDoesNotExist:
             return JsonResponse(
                 {"error": "Object does not exist"},
-                statu=404,
+                status=404,
             )
 
     elif request.method == 'POST':
