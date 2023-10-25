@@ -17,7 +17,7 @@ function Nav() {
               <NavLink className="nav-link" to="/salespeople/form">Add a Salesperson</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/salespeople">Our Salespeople</NavLink>
+              <NavLink className="nav-link" to="/salespeople">Salespeople List</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/salespeople/history">Salesperson History</NavLink>
@@ -26,7 +26,7 @@ function Nav() {
               <NavLink className="nav-link" to="customers/form">Add a Customer</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/customers">Our Customers</NavLink>
+              <NavLink className="nav-link" to="/customers">Customer List</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/sales/form">Record a New Sale</NavLink>
@@ -35,22 +35,22 @@ function Nav() {
               <NavLink className="nav-link" to="/sales">Our Sales</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/manufacturers">Our Manufacturers</NavLink>
+              <NavLink className="nav-link" to="/manufacturers">Manufacturers List</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/manufacturers/form/">Add Manufacturer</NavLink>
+              <NavLink className="nav-link" to="/manufacturers/form/">Add a Manufacturer</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/models/form">Add Auto Model</NavLink>
+              <NavLink className="nav-link" to="/models/form">Add a Model</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/models">Our Models</NavLink>
+              <NavLink className="nav-link" to="/models">Models List</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/automobiles/form">Add Inventory</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/automobiles">Our Inventory</NavLink>
+              <NavLink className="nav-link" to="/automobiles">Inventory List</NavLink>
             </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/technicians/new">Create Technician</NavLink>
