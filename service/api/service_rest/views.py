@@ -99,10 +99,11 @@ def api_list_technicians(request, pk=None):
 
 # List appointments, create/delete, update - cancel/serviced
 @require_http_methods(["GET", "POST",])
-def api_list_appointments(request):
+def api_list_appointments(request, vin=None):
     if request.method == "GET":
         if vin == None:
-            appointments = Appointment.objects.all()
+            appointments = Appointment.objects.all().order_by('date_time')
+
             return JsonResponse(
             {"appointments": appointments},
             encoder=AppointmentEncoder
@@ -158,22 +159,34 @@ def api_delete_appointment(request, pk):
 
 
 @require_http_methods(["PUT"])
-def api_update_appointment(request, pk, action):
+def api_update_appointment(request, pk, action=None):
     try:
         appointment = Appointment.objects.get(pk=pk)
     except ObjectDoesNotExist:
+        print("Appointment not found:", pk)
         return JsonResponse(
             {"error": "Appointment not found"},
             status=404,
         )
 
+    # Validate the action parameter
+    if action not in ['cancel', 'finish']:
+        print(f"Invalid action: {action}")
+        return HttpResponseBadRequest("Invalid action")
+
+    # Update the appointment status based on the action
     if action == 'cancel':
         appointment.status = False  # Set status to "Canceled"
     elif action == 'finish':
         appointment.status = True  # Set status to "Finished"
+
+    # Save changes to the database
     appointment.save()
 
+    # For debugging
+    print(f"Updated appointment: {appointment}")
+
     return JsonResponse(
-        {"message": f"Appointment {appointment.pk} status updated to {action.capitalize()}"},
+        {"message": f"Appointment {appointment.pk} status updated to {action}"},
         status=200,
     )
