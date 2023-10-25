@@ -125,7 +125,7 @@ export default function SaleForm() {
                                 {filteredAutomobiles.map(automobile => {
                                     return (
                                         <option key={ automobile.vin } value={ automobile.vin }>
-                                        {automobile.year} {automobile.model.manufacturer.name} {automobile.model.name}, VIN:{automobile.vin}
+                                        {automobile.vin}
                                         </option>
                                     );
                                 })}
