@@ -36,7 +36,7 @@ const AppointmentsList = () => {
     const appointmentUrl = `http://localhost:8080/api/appointments/${id}/finish/`;
     const fetchConfig = {
       method: "put",
-      body: JSON.stringify({ status: "finished" }), // Update the status to "finished"
+      body: JSON.stringify({ status: "finished" }),
       headers: {
         "Content-Type": "application/json",
       },

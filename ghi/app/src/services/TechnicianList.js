@@ -8,7 +8,7 @@ function TechnicianList() {
 
         if (response.ok) {
             const data = await response.json();
-            setTechnicians(data.technicians); // Corrected variable name
+            setTechnicians(data.technicians);
         }
     };
 
@@ -27,7 +27,7 @@ function TechnicianList() {
             </thead>
             <tbody>
                 {technicians.map((technician) => (
-                    <tr key={technician.employee_id}> {/* Use a unique identifier as the key */}
+                    <tr key={technician.employee_id}> 
                         <td>{technician.employee_id}</td>
                         <td>{technician.first_name}</td>
                         <td>{technician.last_name}</td>
