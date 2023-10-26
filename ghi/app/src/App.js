@@ -10,9 +10,9 @@ import SalespersonForm from './Sales/SalespersonForm';
 import SalespersonList from './Sales/SalespersonList';
 import SalespersonHistory from './Sales/SalespersonHistory';
 import CustomerForm from './Sales/CustomerForm';
-import CustomerList from './Sales/CustomerList'
+import CustomerList from './Sales/CustomerList';
 import SaleForm from './Sales/SaleForm';
-import SaleList from './Sales/SaleList'
+import SaleList from './Sales/SaleList';
 import ManufacturerForm from './Inventory/ManufacturerForm';
 import ManufacturerList from './Inventory/ManufacturerList';
 import ModelsForm from './Inventory/ModelsForm';

@@ -19,7 +19,6 @@ const AppointmentsHistory = () => {
         fetchAppointments();
     }, []);
 
-
 	return (
 		<>
 			<div className="px-4 py-5 my-1 mt-0 text-center">

@@ -85,7 +85,7 @@ function SalespersonHistoryForm() {
                                 <td>{ sale.automobile.vin }</td>
                                 <td>${ sale.price }.00</td>
                                 <td>
-                                    <button className="btn btn-light" onClick={() => handleDelete(sale.id)}>Delete</button>
+                                    <button className="btn btn-danger" onClick={() => handleDelete(sale.id)}>Delete</button>
                                 </td>
                             </tr>
                         );
